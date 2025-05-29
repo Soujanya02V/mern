@@ -1,3 +1,4 @@
+#set up the mongod mongo mongoimport and atlas
 [
     {
         "CategoryName": "Biryani/Rice",
