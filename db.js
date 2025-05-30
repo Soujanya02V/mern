@@ -1,6 +1,7 @@
+//this is the backend file connecting to mongo db
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb+srv://soujanyabailawad:Soujanya@cluster0.7wabyf2.mongodb.net/gofood?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI = 'mongodb+srv://soujanyabailawad:*********@cluster0.7wabyf2.mongodb.net/gofood?retryWrites=true&w=majority&appName=Cluster0';
 
 const mongoDB = async () => {
   try {
