@@ -1,4 +1,5 @@
 //this is the backend file connecting to mongo db
+//mongodb atlas is used to fetch data
 const mongoose = require('mongoose');
 
 const mongoURI = 'database_url';
