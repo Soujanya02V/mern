@@ -1,3 +1,4 @@
+// this file is under folder backend/model
 const mongoose = require('module');
 const {Schema} = mongoose;
 
