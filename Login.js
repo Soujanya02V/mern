@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -24,7 +25,10 @@ let navigate = useNavigate()
       alert("enter valid credentials");
     }
     if (json.success){
+      localStorage.setItem("authToken", json.authToken);
+      console.log(localStorage.getItem("authToken"));
       navigate("/")
+
     }
 
   }
