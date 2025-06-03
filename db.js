@@ -2,23 +2,33 @@
 //mongodb atlas is used to fetch data
 const mongoose = require('mongoose');
 
-const mongoURI = 'database_url';
+const mongoURI = 'url';
 
 const mongoDB = async () => {
   try {
     await mongoose.connect(mongoURI);
     console.log("Connected to database");
 
-    const fetched_data = mongoose.connection.db.collection("collection_name");
-    const data = await fetched_data.find({}).toArray();
+    const foodItemsCollection = mongoose.connection.db.collection("collection");
+    const foodCategoryCollection = mongoose.connection.db.collection("collection");
 
-    console.log("Data fetched from gofooddata:", data);
+    const foodItems = await foodItemsCollection.find({}).toArray();
+    const foodCategory = await foodCategoryCollection.find({}).toArray();
+
+    if (!foodItems.length) {
+      console.log("⚠️ No data found in gofooddata collection.");
+    }
+
+    global.food_items = foodItems;
+    global.foodCategory = foodCategory;
+
+    console.log("✅ Fetched food_items and foodCategory successfully.");
+
   } catch (err) {
-    console.error("Database connection error:", err);
+    console.error("❌ Database connection error:", err);
   }
 };
 
 module.exports = mongoDB;
-
 
 
