@@ -1,14 +1,18 @@
 import React from 'react'
 
-export default function Card() {
+export default function Card(props) {
+
+  let options = props.options;
+  let priceOptions = Object.keys(options)
+
   return (
     <div>
          <div>
         <div className="card mt-3 " style={{ "width": "18rem", "maxHeight":"360px"}}>
-          <img src="https://www.google.com/imgres?q=food&imgurl=https%3A%2F%2Fblog.swiggy.com%2Fwp-content%2Fuploads%2F2024%2F02%2FMasala-Dosa-1024x538.jpg&imgrefurl=https%3A%2F%2Fblog.swiggy.com%2Ffood%2Fexploring-ten-traditional-food-gems%2F&docid=TNOu1gUrCbPvnM&tbnid=p5FnQ_Eja-JbEM&vet=12ahUKEwjLrbCL1caNAxV5jK8BHYDoJXUQM3oECBgQAA..i&w=1024&h=538&hcb=2&ved=2ahUKEwjLrbCL1caNAxV5jK8BHYDoJXUQM3oECBgQAA" className="card-img-top" alt="..." />
+          <img src={props.imgSrc} className="card-img-top" alt="food_image" />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">important text</p>
+            <h5 className="card-title">{props.foodName}</h5>
+            
             <div className="container w-100">
 
               <select className='m-2 h-100  bg-success rounded'>
@@ -24,8 +28,9 @@ export default function Card() {
               </select>
 
             <select className='m-2 h-100  bg-success rounded'>
-              <option value="half">Half</option>
-               <option value="full">Full</option>
+             {priceOptions.map((data) =>{
+              return <option key={data} value={data}>{data}</option>
+             })}
             </select>
 
             <div className='d-inline h-100 fs-5'>Total Price</div>
