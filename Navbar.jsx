@@ -1,3 +1,5 @@
+//fixed import in all components
+//different navbar after login and logout
 import React, { useState } from 'react';
 import {Link , useNavigate} from 'react-router-dom';
 import { Badge } from 'react-bootstrap';
